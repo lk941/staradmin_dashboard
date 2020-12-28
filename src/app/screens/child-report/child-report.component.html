@@ -1,0 +1,42 @@
+<!-- <p>
+  child-report works!
+</p> -->
+<head>
+  <script async="" src="/www.google-analytics.com/analytics.js"></script>
+  <script type="text/javascript" src="/src/assets/lda/js/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="/src/assets/lda/js/jquery-ui-1.8.21.custom.min.js"></script>
+  <script type="text/javascript" src="/src/assets/lda/js/jquery.tagcanvas.min.js"></script>
+  <script type="text/javascript" src="/src/assets/lda/js/stopwords.js"></script>
+  <script type="text/javascript" src="/src/assets/lda/js/lda.js"></script>
+  <script type="text/javascript" src="/src/assets/lda/js/html.js"></script>  
+  <!-- <link rel="stylesheet" type="text/css" href="/src/assets/lda/css/lda.css" /> -->
+</head>
+
+<!-- calling JS files via script src doesn't work in angular -->
+
+<body>
+  <!-- <textarea id="topicCloudText" cols="80" rows="10" readonly="readonly">
+      get reasons from firebase reasons :)
+  </textarea><br/> -->
+  <div id="menu">
+  <label for="topics">Topics:</label>
+  <select name="topics" id="topics">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+      <option>6</option>
+  </select>
+  <br/>
+
+  <button id="btnTopicise" type="button" (click)="tsProcessText()"> Analyze </button>
+  
+  <br/>
+  </div>
+  <div class="spacer"></div>
+  <div id="topiccloud"></div>
+  <br/>
+  <div id="output"></div>
+  <div id="probabilities"></div>
+</body>

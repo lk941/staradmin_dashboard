@@ -1,0 +1,102 @@
+<div>
+  <form id="loggedIn" method="POST" name="teachAdd" (ngSubmit)="Function1()">
+    <fieldset>
+      <legend>Create Child</legend>
+      <div class="form-group">
+        <label for="Username"> Child Name: </label>
+        <input id="Username" type="text" class="form-control" [(ngModel)]="newChild.Name" name="Username" required />
+      </div>
+
+      <div class="form-group">
+        <label for="Number"> Number: </label>
+        <input id="Number" type="text" class="form-control" [(ngModel)]="newChild.Number" name="Password" required />
+      </div>
+
+      <div class="form-group">
+        <label for="Color"> Preferred Color: </label>
+        <input id="Color" type="text" class="form-control" [(ngModel)]="newChild.Color" name="Color" required />
+      </div>
+
+      <div class="form-group">
+        <label for="ic"> NRIC: </label>
+        <input id="ic" type="text" class="form-control" [(ngModel)]="newChild.NRIC" name="Password" required />
+      </div>
+
+      <div class="form-group">
+        <label for="Fruit"> Fruit: </label>
+        <input id="Fruit" type="text" class="form-control" [(ngModel)]="newChild.Fruit" name="Password" required />
+      </div>
+
+
+      <div class="form-group">
+        <button id="inside" type="submit" class="btn btn-success">Sign Child Up</button>
+      </div>
+    </fieldset>
+  </form>
+
+
+  <input type="file" name="File Upload" id="txtFileUpload"
+         (change)="changeListener($event.target.files)"
+         accept=".csv" />
+
+  <button id="createbutton" class="btn" (click)="GenerateExcel()">Generate Template</button>
+  <div *ngIf="this.boo == true;">
+    <div *ngIf="this.errormessage.length > 0">
+      <div *ngFor="let erorr of errormessage">{{erorr}}</div>
+    </div>
+    <div *ngIf="this.fullChild.length > 0;">
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort>
+
+        <!--- Note that these columns can be defined in any order.
+  The actual rendered columns are set as a property on the row definition" -->
+        <!-- Position Column -->
+        <ng-container matColumnDef="Name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+          <td mat-cell *matCellDef="let child">
+            {{child.Name}}
+          </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="nric">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> NRIC </th>
+          <td mat-cell *matCellDef="let child"> {{child.nric}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="FavColor">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Color </th>
+          <td mat-cell *matCellDef="let child"> {{child.FavColor}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="FavFruit">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Fruit </th>
+          <td mat-cell *matCellDef="let child"> {{child.FavFruit}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="FavNumber">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Number </th>
+          <td mat-cell *matCellDef="let child"> {{child.FavNumber}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+          <td mat-cell *matCellDef="let child">
+            <a (click)="openDialog('Update',child)">Edit</a> |
+            <a (click)="openDialog('Delete',child)">Delete</a>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let child; columns: displayedColumns;"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </div>
+
+    <button (click)="ValidateCheck()" mat-button showFirstLastButtons>Go to next step</button>
+  </div>
+    </div>
+
+</div>

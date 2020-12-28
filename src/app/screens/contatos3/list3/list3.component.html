@@ -1,0 +1,33 @@
+<div class = "div1">
+  <div *ngIf="delete1" class="alert alert-danger alert-dismissible">
+        <a href="/quiz" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> Record has been deleted!
+      </div>
+  
+  
+  <div class = "container">
+  <div class="row justify-content-center">
+  
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Question</th>
+          <th>Answer</th>
+          <th colspan="2" width="600px">Action</th>
+        </tr>
+      </thead>
+      <tr *ngFor="let contato3 of contatos3 | async">
+          <td>{{contato3.Qn}}</td>
+          <td>{{contato3.Ans}}</td>
+          <td style="text-align: center;">
+              <button type="button" class="btn btn-info" (click)="edit(contato3, contato3.key)">Edit</button>
+              <button type="button" class="btn btn-danger ml-2" (click)="delete(contato3.key)">Delete</button>
+          </td>
+        </tr>
+    </table>
+  </div>
+  </div>
+  </div>
+  
+  
+  

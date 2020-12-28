@@ -1,0 +1,88 @@
+.form-control{
+  width: 100%;
+}
+
+.search{
+  margin-top: 3%;
+}
+
+.table-responsive{
+  padding-right:50;
+  padding-left:0;
+}
+
+.table {
+  border: 0.1px solid lightgrey;
+  border-collapse: collapse;
+  margin-top: 2%;
+  
+}
+
+tr:hover {
+  background-color: rgba(173, 173, 173, 0.151);
+}
+
+.sort{
+  opacity: 0;
+}
+
+.sort:hover{
+  opacity: 1;
+}
+
+.action:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color: white;
+}
+
+.insight {
+  margin-top: 11%;
+  float: right;
+	font-size: 14px;
+	font-weight: 600;
+	letter-spacing: 1px;
+	padding: 2.8% 3.5%;
+	text-transform: uppercase;
+	border-radius: 2px;
+  background-color:rgb(142, 160, 184);
+  border: none;
+  transition: all 0.5s;
+  cursor: pointer;
+	opacity: 1;
+}
+.insight:hover, .insight:focus {
+	color: white;
+	background-color:#8399B3;
+	cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+	opacity: 0.6;
+}
+
+.insight span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  color: white;
+}
+
+.insight span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.insight:hover span {
+  padding-right: 25px;
+  color: black;
+}
+
+.insight:hover span:after {
+  opacity: 1;
+  right: 0;
+}

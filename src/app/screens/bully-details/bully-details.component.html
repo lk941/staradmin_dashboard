@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+<div class="container">
+<!-- <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <a routerLink="/bully-report" class="back">Back</a>
+  </div>
+</nav> -->
+<div class="details">
+    <table class="table-striped">
+        <tr>
+          <th>Bully:</th>
+          <td>{{(bullyDetails | async)?.BullyName}}</td>
+        </tr>
+        <tr>
+          <th>Victim:</th>
+          <td>{{(bullyDetails | async)?.Victim}}</td>
+        </tr>
+        <tr>
+            <th>Date:</th>
+            <td>{{(bullyDetails | async)?.Date}}</td>
+          </tr>
+          <tr>
+            <th>Location:</th>
+            <td>{{(bullyDetails | async)?.Location}}</td>
+          </tr>
+          <tr>
+              <th>Reason:</th>
+              <td>{{(bullyDetails | async)?.Reason}}</td>
+            </tr>
+            <tr>
+              <th>Action:</th>
+              <td>{{(bullyDetails | async)?.Action}}</td>
+            </tr>
+    </table>
+  </div>
+</div>
+</body>
+</html>

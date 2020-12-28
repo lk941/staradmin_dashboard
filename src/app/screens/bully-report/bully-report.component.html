@@ -1,0 +1,53 @@
+<html>
+<body>
+    
+<h2 class="header"><b>Bully Report</b></h2>
+
+<div class="div2">
+    <app-list1></app-list1>
+</div>
+
+<!-- <h4 class="header" style="margin-top: 1%; font-weight: 580">Bully Reasons....</h4>
+<div class="wordcloud">
+    <div id="wordCloud"></div>
+</div> -->
+<!-- <div class="cloud">
+        <app-cloud></app-cloud>
+</div> -->
+
+<div class="button">
+    <button class="btn1 btn-dark" id="barBtn" (click)="toggleHidenShowB()">Generate Bully Chart</button>
+    <button class="btn2 btn-dark" id="pieBtn" (click)="toggleHidenShowP()">Generate Location Chart</button>
+    <button class="btn3 btn-dark" id="doughnutBtn" (click)="toggleHidenShowD()">Generate Victim Chart</button>
+</div>
+
+<div class="chart">
+    <div id="bar">
+        <div id="barLoad">
+                <iframe src="https://giphy.com/embed/9DaWtzJV7WZpxQVzNz" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+        </div>
+        <div id = "barChart1">
+        <canvas id = "barChart"></canvas>
+        </div>
+    </div>  
+
+    <div id="pie">
+        <div id="pieLoad">
+                <iframe src="https://giphy.com/embed/9DaWtzJV7WZpxQVzNz" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+        </div>
+        <div id = "pieChart1">
+        <canvas id = "pieChart"></canvas>
+        </div>
+    </div>
+
+    <div id="doughnut">
+        <div id="doughnutLoad">
+                <iframe src="https://giphy.com/embed/9DaWtzJV7WZpxQVzNz" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+        </div>
+        <div id = "doughnutChart1">
+        <canvas id = "doughnutChart"></canvas>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+.header{
+  text-align: center;
+}
+
+.div2{
+    margin: auto;
+    width: 75%;
+    text-align: center;
+    padding: 10px;
+}
+
+// .cloud{
+//   margin: auto;
+//   width: 75%;
+//   text-align: center;
+// }
+
+.button{
+  margin: auto;
+  text-align: center;
+  //margin-top: 42%;
+  margin-top: 1%;
+  margin-bottom: 5%;
+}
+
+.btn2, .btn3{
+  margin-left: 2%;
+}
+
+.chart{
+  margin:auto;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 10%;
+}
+
+#bar, #pie, #doughnut{
+  width: 80%;
+  margin: auto;
+  margin-top: 5%;
+ }
+
+#barLoad, #pieLoad, #doughnutLoad, #barChart1, #pieChart1, #doughnutChart1{
+  display: none;
+}
+
+.wordcloud{
+  // position: absolute;
+  // right: 0; 
+  // left: 0;
+  width: 100vw;
+  position: relative;
+  left: -16.5%;
+  height: 580px;
+  margin: auto;
+  padding: 2px;
+  background-color: rgba(227, 237, 248, 0.349);
+}
+
+#wordCloud{
+  height: 570px;
+  margin: auto;
+  width: 80%;
+}

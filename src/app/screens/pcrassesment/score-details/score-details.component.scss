@@ -1,0 +1,45 @@
+.scoreDiv{
+  border: 2px solid #dddddd;
+  padding: 20px; 
+  width: 97%; 
+}
+
+#scoringtable {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+      width: 40%;
+    }
+  }
+
+#buttonDiv{
+  float: right;
+}
+
+
+  #scoringGuide{
+    border-collapse: collapse;
+    border: 1px solid #dddddd;
+    width: 35%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1%;
+  }
+  
+  span{
+    padding-right: 8%;
+    padding-left: 8%;
+  }
+
+.circle{
+    border: 1px solid #000;
+    border-radius: 50%;
+}

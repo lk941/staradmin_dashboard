@@ -1,0 +1,78 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.addTk{
+  margin-top: 3%;
+  display: none;
+}
+
+div.form-group{
+    padding: 2px;
+}
+
+.form-group input[type=text]{
+  text-transform: capitalize;
+}
+
+// ---------------------------------------------------------------------------------------------------------------
+
+/* Button used to open the add homework */
+.addBtn {
+    background-color: #555;
+    color: white;
+    padding: 12px 16px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    width: 230px;
+  }
+  
+/* Cover the whole background behind the form*/
+
+
+  /* The popup form - hidden by default */
+  .form-popup {
+    display: none;
+    position: fixed;
+    bottom: 10%;
+	margin-top: 25%;
+    margin-left: 15%;
+	border: 5px solid #f1f1f1;
+    z-index: 1;
+    width:30%;
+  }
+  
+  /* Add styles to the form container */
+  .form-container {
+    padding: 12px;
+    background-color: #fffef2;
+    box-shadow: 7px 11px 9px #cccccc;
+  }
+  
+  /* Full-width input fields */
+  .form-container input[type=text], .form-container input[type=date] {
+    width: 90%;
+    margin: 1px 0 1px 0;
+    border: none;
+    background: white;
+  }
+  
+  /* When the inputs get focus, do something */
+  .form-container input[type=text]:focus, .form-container input[type=date]:focus {
+    background-color: rgb(247, 245, 255);
+    outline: none;
+  }
+  
+  /* Add a blue background color to the cancel button */
+  .form-container .save {
+    background-color: #e6f2ff;
+  }
+  
+  /* Add a red background color to the cancel button */
+  .form-container .cancel {
+    background-color: #db8d7d;
+  }
+  
+  /* Add some hover effects to buttons */
+  .form-container .btn:hover, .addBtn:hover {
+    opacity: 1;
+  }

@@ -1,0 +1,22 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+// .left, .right{
+//     margin: auto;
+//     width: 50%;
+//     text-align: center;
+//     padding: 10px;
+//   }
+
+.header{
+  text-align: center;
+}
+
+.left {
+  width: 80%;
+  padding: 10px;
+  margin: auto;
+}
+
+.right {
+  width: 40%;
+  margin-left: 10%;
+}

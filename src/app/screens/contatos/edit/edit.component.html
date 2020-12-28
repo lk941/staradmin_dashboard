@@ -1,0 +1,58 @@
+<!-- -------------------------------------------------------------------------------------------------------------------------------- -->
+<div id="alert">
+  <div *ngIf="success" class="alert alert-success alert-dismissible">
+    <a href="/homework" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Success!</strong> Record has been saved.
+  </div>
+</div>
+
+<div id="alert1">
+  <div *ngIf="addSuccess" class="alert alert-success alert-dismissible">
+    <a href="/homework" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Success!</strong> Record(s) has been added.
+  </div>
+</div>
+
+<div class="form-popup" id="myForm">
+  <form class="form-container">
+    <h3 style="margin-top: 4%;">Edit Homework</h3>
+
+    <label style="margin-top: 5%;" for="name"><b>Name</b></label>
+    <input type="text" class="form-control" [(ngModel)]="contato.Name" name="name">
+
+    <label for="date"><b>Date</b></label>
+    <input type="date" class="form-control" [(ngModel)]="contato.Date" name="date">
+
+    <button type="submit" class="btn" (click)="onSubmit()">Save</button>
+    <button type="button" class="btn cancel" (click)="closeForm()">Close</button>
+  </form>
+</div>
+
+<button class="addBtn" id="addBtn" (click)="onAddBtn()">Add Homework</button> 
+<!-- -------------------------------------------------------------------------------------------------------------------------------- -->
+<form class="addHw" id="addHw">
+    <div class="form-group">
+      <label>Student :</label>
+      <select (change)="selectChangeHandler($event)" class="form-control" [(ngModel)]="contato.Student" name="Student">
+        
+        <option *ngFor="let user of users">{{user}}</option>
+      </select>
+    </div>
+  
+    <div class="form-group">
+      <label>Homework : </label>
+      <input type="text" onfocus="this.value=''" class="form-control" [(ngModel)]="contato.Name" name="Homework" size="20"/>
+    </div>
+  
+    <div class="form-group">
+      <label>Date : </label>
+      <input type="date" onfocus="this.value=''" class="form-control" [(ngModel)]="contato.Date" name="Date" size="20"/>
+    </div>
+  
+    <div class="form-group">
+    <button type="submit" (click)="onInsert()" class="btn btn-success">Insert</button>
+  </div>
+</form>
+<!-- -------------------------------------------------------------------------------------------------------------------------------- -->
+
+

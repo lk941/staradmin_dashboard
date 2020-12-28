@@ -1,0 +1,45 @@
+<h1>
+  Notifications
+</h1>
+
+<div *ngIf="this.confcher.length > 0; else elseBlock">
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+      <!--- Note that these columns can be defined in any order.
+      The actual rendered columns are set as a property on the row definition" -->
+      <!-- Parent Column -->
+      <ng-container matColumnDef="PName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Parent Name</th>
+        <td mat-cell *matCellDef="let conf">
+          {{conf.pid}}
+        </td>
+      </ng-container>
+
+      <!-- User ID Column -->
+      <ng-container matColumnDef="CName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Child Name</th>
+        <td mat-cell *matCellDef="let conf"> {{conf.uid}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+        <td mat-cell *matCellDef="let conf">
+          <a (click)="openDialog('AcceptConf',conf)">Accept</a> |
+          <a (click)="Reject(conf)">Reject</a>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let conf; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+
+  <button (click)="ValidateCheck()" mat-button showFirstLastButtons>Go to next step</button>
+</div>
+
+
+
+<ng-template #elseBlock><div>No Requests at this time.</div></ng-template>
+

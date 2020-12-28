@@ -1,0 +1,82 @@
+<div id="printthis">
+<h3>
+  Parent-Child Relationship Assessment Score
+</h3>
+Child Name: <select [(ngModel)]="selectedName" style="width: 10%;">
+  <option *ngFor="let score of scores | unique">{{score.childName}}</option>
+</select>
+<br><br>
+
+  <table id="scoringGuide">
+    <tr>
+      <td>Definitely does not apply</td>
+      <td>Not really</td>
+      <td>Neutral, not sure</td>
+      <td>Applies somewhat</td>
+      <td>Definitely applies</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+    </tr>
+  </table>
+
+  Date: <select [(ngModel)]="selectedDate" style="width: 10%;">
+      <option [ngValue]= "null">--Select--</option>
+      <ng-container *ngFor="let score of scores">
+        <option *ngIf = "score.childName == selectedName">{{score.Date}}</option>
+      </ng-container>
+    </select>
+
+<div *ngFor="let score of scores">
+<div *ngIf="score.Date == selectedDate && score.childName == selectedName">
+<table id="scoringtable">
+  <tr>
+    <th>Questions</th>
+    <th>Score</th>
+  </tr>
+  <tr>
+    <td>1. I share an affectionate, warm relationship with my child.</td>
+    <td><span [ngClass]="score.Qns1 == 1 ? 'circle': ''">1</span>
+      <span [ngClass]="score.Qns1 == 2 ? 'circle': ''">2</span>
+      <span [ngClass]="score.Qns1 == 3 ? 'circle': ''">3</span>
+      <span [ngClass]="score.Qns1 == 4 ? 'circle': ''">4</span>
+      <span [ngClass]="score.Qns1 == 5 ? 'circle': ''">5</span></td>
+  </tr>
+  <tr>
+    <td>2. If upset, my child will seek comfort from me.</td>
+    <td><span [ngClass]="score.Qns2 == 1 ? 'circle': ''">1</span>
+      <span [ngClass]="score.Qns2 == 2 ? 'circle': ''">2</span>
+      <span [ngClass]="score.Qns2 == 3 ? 'circle': ''">3</span>
+      <span [ngClass]="score.Qns2 == 4 ? 'circle': ''">4</span>
+      <span [ngClass]="score.Qns2 == 5 ? 'circle': ''">5</span></td>
+  </tr>
+  <tr>
+    <td>3. My child values his/her relationship with me.</td>
+    <td><span [ngClass]="score.Qns3 == 1 ? 'circle': ''">1</span>
+      <span [ngClass]="score.Qns3 == 2 ? 'circle': ''">2</span>
+      <span [ngClass]="score.Qns3 == 3 ? 'circle': ''">3</span>
+      <span [ngClass]="score.Qns3 == 4 ? 'circle': ''">4</span>
+      <span [ngClass]="score.Qns3 == 5 ? 'circle': ''">5</span></td>
+  </tr>
+</table>
+<div class="scoreDiv">
+    <label>Total Score: </label> {{score.Score}} <br><br>
+    <label>Results: </label> {{score.Outcome}} <br><br>
+    <label *ngIf = "score.Score < 6 "> Advice: Do communicate with your child more and spend more time together! <br>
+    Or you can visit this <a href="https://tittleforparents.com/blog/communicate-effectively-parent-child/">website</a> to learn some tips!</label>
+</div>
+</div></div>
+
+<div id="empty"></div> <!--if empty show message-->
+
+
+<div id="buttonDiv">
+    <!--input type="button" id="printbtn" onclick="window.print()" value="Print">-->
+    <button (click)="generate()">Save as PDF</button>
+</div>
+ 
+

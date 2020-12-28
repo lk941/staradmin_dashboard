@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+<div class="container">
+<!-- <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <a routerLink="/bully-report" class="back">Back</a>
+  </div>
+</nav> -->
+<div class="details">
+<h2 style="color:navy;">Points Details</h2>
+    <table class="table-striped" >
+	    <tr>
+              <th>Child Name:</th>
+              <th>{{(PointsDetails | async)?.ChildName}}</th>
+			  <td></td>
+            </tr>
+		<tr>
+            <th>Available:</th>
+            <td>{{(PointsDetails | async)?.Available}}</td>
+			<td></td>
+          </tr>
+        <tr>
+          <th>On Hold: </th>
+          <td>{{(PointsDetails | async)?.On_Hold}}</td>
+		  <td></td>
+        </tr>
+        <tr>
+          <th>Used:</th>
+          <td>{{(PointsDetails | async)?.Used}}</td>
+		  <td></td>
+        </tr>
+          <tr>
+            <th>Total:</th>
+            <td>{{(PointsDetails | async)?.Total}}</td>
+			<td></td>
+          </tr>
+
+    </table>
+	<!-- <div class="chart"> -->
+ <!-- <div id="pie"> -->
+        <!-- <div id = "pieChart1"> -->
+        <!-- <canvas id = "pieChart"></canvas> -->
+        <!-- </div> -->
+    <!-- </div> -->
+  <!-- </div> -->
+  </div>
+</div>
+</body>
+</html>

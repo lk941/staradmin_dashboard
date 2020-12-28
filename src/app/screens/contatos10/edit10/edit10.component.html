@@ -1,0 +1,60 @@
+<!-- <form (ngSubmit)="onSubmit()"> -->
+ 
+    <!-- <!-- <div class="form-group"> --> 
+      <!-- <!-- <label>Name</label> --> 
+      <!-- <!-- <input type="text" class="form-control" [(ngModel)]="contato8.Name" name="Name" /> --> 
+    <!-- <!-- </div> --> 
+   <!-- <div class="form-popup" id="myForm"> -->
+  <!-- <form class="form-container"> -->
+    <!-- <h3 style="margin-top: 4%;">Edit Status</h3> -->
+
+    <!-- <label style="margin-top: 5%;" for="name"><b>Completion Status</b></label> -->
+    <!-- <input type="text" class="form-control" [(ngModel)]="contato8.CompletionStatus" name="CompletionStatus"> -->
+    <!-- <button type="submit" class="btn" (click)="onSubmit()">Save</button> -->
+    <!-- <button type="button" class="btn cancel" (click)="closeForm()">Close</button> -->
+  <!-- </form> -->
+<!-- </div> -->
+    <!-- <button type="submit" class="btn btn-primary">Save</button> -->
+  <!-- <!-- </form> --> 
+  
+  <div id="alert">
+  <div *ngIf="success" class="alert alert-success alert-dismissible">
+    <a href="/point-system-task" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Success!</strong> Record has been saved.
+  </div>
+</div>
+
+<div id="alert1">
+  <div *ngIf="addSuccess" class="alert alert-success alert-dismissible">
+    <a href="/point-system-task" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Success!</strong> Record(s) has been added.
+  </div>
+</div>
+
+<button class="addBtn" id="addBtn" (click)="onAddBtn()">Close</button> 
+<!-- <div class="form-popup" id="myForm"> -->
+  <form class="addRd" id="addRd">
+    <div class="form-group">
+      <label>Child Name : </label>
+      <input type="text" onfocus="this.value=''" class="form-control" [(ngModel)]="contato10.ChildName" name="ChildName" size="20"/>
+    </div>
+   <div class="form-group">
+      <label>Reward : </label>
+      <input type="text" onfocus="this.value=''" class="form-control" [(ngModel)]="contato10.Reward" name="Reward" size="20"/>
+    </div>
+  
+    <div class="form-group">
+      <label>Date : </label>
+      <input type="date" onfocus="this.value=''" class="form-control" [(ngModel)]="contato10.Date" name="Date" size="20"/>
+    </div>
+	<div class="form-group">
+      <label>Points : </label>
+      <input type="text" onfocus="this.value=''" class="form-control" [(ngModel)]="contato10.Points" name="Points" size="20"/>
+    </div>
+  
+    <div class="form-group">
+    <button type="submit" (click)="onInsert()" >Insert</button>
+  </div>
+   
+  </form>
+<!-- </div> -->

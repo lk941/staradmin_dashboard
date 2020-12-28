@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.rawgit.com/BrainJS/brain.js/45ce6ffc/browser.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <h2 class="header">Child Insight</h2>
+  <div >
+    <!-- <h2>Hello -- parentName --</h2>-->
+    <h2>{{ childName }}</h2> 
+    <!-- <h2 *ngFor="let childBully of bully">{{ childBully.BullyName }}</h2>
+    <p *ngFor="let type of chatType">{{ type }}</p> -->
+    <p style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+      Get the latest insights now if there are any.&nbsp; &nbsp; <button class="btn btn-warning" (click)="predict()">Generate</button>
+    </p>
+  </div>
+
+  <div id="alert">
+    <div *ngIf="success" class="alert alert-success alert-dismissible">
+        <a (click)="close()" class="close" style="margin-top: -10px;" data-dismiss="alert" aria-label="close">&times;</a>
+        There are nothing to update. <strong>Insight is up to date!</strong> 
+    </div>
+  </div>
+
+  <h2 *ngIf="isTeacher">Welcome Teacher</h2>
+  <h2 *ngIf="!isTeacher">Welcome Parent</h2>
+
+  <div *ngIf="loader" id="loader"></div>
+
+  <div *ngIf="userType === 'Teacher'">
+    <select [(ngModel)]="selectedStudentName" (change)="selected()">
+      <option *ngFor="let name of studentsName" [ngValue]="name.Name">{{ name.Name }}</option>
+    </select>
+  </div>
+  
+  <div id = "hBarChart1">
+    <h2 id="childChartTitle" *ngIf="childName != null">{{ childName }}'s Chart</h2>
+    <canvas id = "hBarChart"></canvas>
+  </div>
+
+  
+
+  <div class="circle-bar">
+    <button class="btnbar" (click)="wordList('anger')">
+      <circle-progress [percent]="getAngerPercent()" [radius]="80" [outerStrokeWidth]="14" [innerStrokeWidth]="14"
+        [space]="-13" [outerStrokeColor]="'#E63C5E'" [innerStrokeColor]="'#FF9AAE'" [animation]="true"
+        [animationDuration]="350" [outerStrokeLinecap]="'butt'" [subtitle]="'Anger'" [titleFontSize]="28"
+        [unitsFontSize]="15" [subtitleFontSize]="25" [subtitleFontWeight]="530" [titleColor]="'#A9A9A9'"
+        [unitsColor]="'#A9A9A9'" [subtitleColor]="'#666666'">
+      </circle-progress>
+    </button>
+
+    <button class="btnbar" (click)="wordList('fear')">
+      <circle-progress [percent]="getFearPercent()" [radius]="80" [outerStrokeWidth]="14" [innerStrokeWidth]="14" [space]="-13"
+          [outerStrokeColor]="'#FF8C00'" [innerStrokeColor]="'#FFD281'" [animation]="true" [animationDuration]="350" 
+          [outerStrokeLinecap]="'butt'" [subtitle]="'Fear'" [titleFontSize]="28" [unitsFontSize]="15" [subtitleFontSize]="25" 
+          [subtitleFontWeight]="530" [titleColor]="'#A9A9A9'" [unitsColor]="'#A9A9A9'" [subtitleColor]="'#666666'">
+      </circle-progress>
+    </button>
+
+    <button class="btnbar" (click)="wordList('joy')">
+      <circle-progress [percent]="getJoyPercent()" [radius]="80" [outerStrokeWidth]="14" [innerStrokeWidth]="14" [space]="-13"
+          [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="350" 
+          [outerStrokeLinecap]="'butt'" [subtitle]="'Joy'" [titleFontSize]="28" [unitsFontSize]="15" [subtitleFontSize]="25" 
+          [subtitleFontWeight]="530" [titleColor]="'#A9A9A9'" [unitsColor]="'#A9A9A9'" [subtitleColor]="'#666666'"> 
+      </circle-progress>
+    </button>
+
+    <button class="btnbar" (click)="wordList('sad')">
+      <circle-progress [percent]="getSadPercent()" [radius]="80" [outerStrokeWidth]="14" [innerStrokeWidth]="14" [space]="-13"
+          [outerStrokeColor]="'#61C0FF'" [innerStrokeColor]="'#C3E8FF'" [animation]="true" [animationDuration]="350" 
+          [outerStrokeLinecap]="'butt'" [subtitle]="'Sad'" [titleFontSize]="28" [unitsFontSize]="15" [subtitleFontSize]="25" 
+          [subtitleFontWeight]="530" [titleColor]="'#A9A9A9'" [unitsColor]="'#A9A9A9'" [subtitleColor]="'#666666'"> 
+      </circle-progress>
+    </button>
+  </div>
+
+  <div *ngIf="userType === 'Teacher'" id = "stackBarChart1">
+    <canvas id = "stackBarChart"></canvas>
+  </div>
+
+  
+
+  <div class="rankTable" *ngIf="userType === 'Teacher'">
+    <h2 style="margin-bottom: 1%; font-weight: 600;">Ranking Table
+        <!-- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        <button class="btn btn-info" (click)="viewDetail()">View Details</button> -->
+    </h2>
+    <div class="column">
+      <h3>Joy Table</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col" class="head">Rank</th>
+            <th scope="col" class="head">Child</th>
+            <th scope="col" class="head">Count</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let list of getTopRank('joy'); let i=index">
+          <tr>
+            <td><b>{{i+1}}</b></td>
+            <td id="name" class="body">{{list.Name}}</td>
+            <td class="body">{{list.count}}</td>
+          </tr>
+        </tbody>
+      </table>
+      &nbsp;&nbsp;&nbsp;
+      
+      <h3>Anger Table</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col" class="head">Rank</th>
+            <th scope="col" class="head">Child</th>
+            <th scope="col" class="head">Count</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let list of getTopRank('anger'); let i=index">
+          <tr>
+            <td><b>{{i+1}}</b></td>
+            <td id="name" class="body">{{list.Name}}</td>
+            <td class="body">{{list.count}}</td>
+          </tr>
+        </tbody>
+      </table>
+      &nbsp;&nbsp;&nbsp;
+    </div>
+
+    <div class="column">
+      <h3>Fear Table</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col" class="head">Rank</th>
+            <th scope="col" class="head">Child</th>
+            <th scope="col" class="head">Count</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let list of getTopRank('fear'); let i=index">
+          <tr>
+            <td><b>{{i+1}}</b></td>
+            <td id="name" class="body">{{list.Name}}</td>
+            <td class="body">{{list.count}}</td>
+          </tr>
+        </tbody>
+      </table>
+      &nbsp;&nbsp;&nbsp;
+  
+      <h3>Sad Table</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col" class="head">Rank</th>
+            <th scope="col" class="head">Child</th>
+            <th scope="col" class="head">Count</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let list of getTopRank('sad'); let i=index">
+          <tr>
+            <td><b>{{i+1}}</b></td>
+            <td id="name" class="body">{{list.Name}}</td>
+            <td class="body">{{list.count}}</td>
+          </tr>
+        </tbody>
+      </table>
+      &nbsp;&nbsp;&nbsp;
+    </div>
+  </div>
+
+  <!-- <button class="btn btn-info" (click)="test()">View Details</button> -->
+  <div>
+    <!-- <app-list4></app-list4> -->
+    <input type="text" placeholder="Search by Message/Chat Type/Child Name..." [(ngModel)]="search" class="form-control">
+    Filter by Chat Type: <select [(ngModel)]="searchDDL">
+      <option></option>
+      <option>fear</option>
+      <option>joy</option>
+      <option>anger</option>
+      <option>sad</option>
+    </select>
+  </div>
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th (click)="sort('Name')">Child Name</th>
+          <th (click)="sort('Message')">Message</th>
+          <th (click)="sort('ChatType')">Chat Type</th>
+          <!-- <th (click)="sort('Time')">Date</th> -->
+        </tr>
+      </thead>
+      <ng-container *ngFor="let list of allChat| filter: selectedStudentName | filter: search | filter: searchDDL | orderBy: key : reverse | paginate: { itemsPerPage: 10, currentPage: p}">
+        <tr>
+          <td>{{ list.Name }}</td>
+          <td>{{ list.Message }}</td>
+          <td>{{ list.ChatType }}</td>
+          <!-- <td>{{ list.Time }}</td> -->
+        </tr>
+      </ng-container>
+    </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+  
+</body>
+</html>

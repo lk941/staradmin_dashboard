@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="row">
+    <div class="col-lg-8 search">
+      <input class="form-control" placeholder="Search..." [(ngModel)]="searchText">
+    </div>
+    <div class="col-lg-4">
+      <button class = "insight" (click)="viewInsight()"><span>More Hobby Insights</span></button>
+    </div>
+  </div>
+
+    <div class="col-lg-12" table-responsive>
+      <br>
+      <table class="table" >
+         <thead class="thead-light">
+         <tr>
+            <th width ="30%">Name</th>
+            <th width ="30%">Hobby</th>
+            <th width ="30%">Duration</th>
+         </tr> 
+      </thead>   
+      <ng-container *ngFor="let contato5 of contatos5 | async | orderBy: key : reverse | filter: searchText | paginate: { itemsPerPage: 8, currentPage: p }"> 
+         <tr>
+          <td width = "20%">&nbsp;&nbsp;&nbsp;{{contato5.Name}}</td>
+          <td width>{{contato5.Hobby}}</td>
+          <td width>{{contato5.Duration}}</td>
+          <!--<td><button class="btn btn-sm action" (click)="viewDetails(contato5.key)" type="button">
+              <img src="https://img.icons8.com/color/30/000000/circled-right-2.png">
+              <a href="https://icons8.com/icon/19171/forward-button"></a>
+          </button></td>-->
+        </tr>
+      </ng-container>
+     </table>
+     <div class="col-12 justify-content-left">
+     <pagination-controls (pageChange)="p = $event"></pagination-controls>
+     </div>
+    </div>
+</body>
+</html>

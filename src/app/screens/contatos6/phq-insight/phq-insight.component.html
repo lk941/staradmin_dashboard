@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdn.rawgit.com/BrainJS/brain.js/45ce6ffc/browser.js"></script>
+    </head>
+    <body>
+        <h2 class="header"><b>Mood Insight</b></h2>
+        <p style ="text-align: center; font-size: 15px; margin-bottom: 2%;">Last Updated on: <span *ngFor="let time of time">{{time}}</span></p>
+        <!-- <button (click)="ff()">login</button>
+        <button (click)="gg()">logout</button> -->
+        
+        <hr class="line">
+        <div class="predictBar">
+            <p style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+                Get the latest insights now &nbsp; &nbsp; <button class="btn btn-warning" (click)="predict()">Generate</button>
+            </p>
+        </div>
+
+        <div id="alert">
+            <div *ngIf="success" class="alert alert-success alert-dismissible">
+                <a (click)="close()" class="close" style="margin-top: -10px;" data-dismiss="alert" aria-label="close">&times;</a>
+                There are no new updates <strong>Insights are up to date!</strong> 
+            </div>
+        </div>
+
+        <div *ngIf="loader" id="loader"></div>
+
+        <div class="bigCon">
+            <!-- <div class="btnGrp">
+                <div class="btn-group btn-group-sm period">
+                    <button type="button" class="btn btn-outline-secondary">Day</button>
+                    <button type="button" class="btn btn-outline-secondary">Week</button>
+                    <button type="button" class="btn btn-outline-secondary">Month</button>
+                    <button type="button" class="btn btn-outline-secondary">All</button>
+                </div>
+            </div> -->
+
+            <div id = "hBarChart1">
+                <canvas id = "hBarChart"></canvas>
+            </div>
+
+        </div>
+
+        <div class="circle-bar">
+
+            <button class="btnbar" (click)="moodList('Family')">
+                <circle-progress [percent]="getFamilyPercent()" [radius]="80" [outerStrokeWidth]="14" [innerStrokeWidth]="14" [space]="-13"
+                    [outerStrokeColor]="'#FF8C00'" [innerStrokeColor]="'#FFD281'" [animation]="true" [animationDuration]="350" 
+                    [outerStrokeLinecap]="'butt'" [subtitle]="'Family'" [titleFontSize]="28" [unitsFontSize]="15" [subtitleFontSize]="25" 
+                    [subtitleFontWeight]="530" [titleColor]="'#A9A9A9'" [unitsColor]="'#A9A9A9'" [subtitleColor]="'#666666'">
+                </circle-progress>
+            </button>
+
+            <button class="btnbar" (click)="moodList('Friends')">
+                <circle-progress [percent]="getFriendsPercent()" [radius]="80" [outerStrokeWidth]="14" [innerStrokeWidth]="14" [space]="-13"
+                    [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="350" 
+                    [outerStrokeLinecap]="'butt'" [subtitle]="'Friends'" [titleFontSize]="28" [unitsFontSize]="15" [subtitleFontSize]="25" 
+                    [subtitleFontWeight]="530" [titleColor]="'#A9A9A9'" [unitsColor]="'#A9A9A9'" [subtitleColor]="'#666666'"> 
+                </circle-progress>
+            </button>
+    
+            <button class="btnbar" (click)="moodList('School')">
+                <circle-progress [percent]="getSchoolPercent()" [radius]="80" [outerStrokeWidth]="14" [innerStrokeWidth]="14" [space]="-13"
+                    [outerStrokeColor]="'#E63C5E'" [innerStrokeColor]="'#FF9AAE'" [animation]="true" [animationDuration]="350" 
+                    [outerStrokeLinecap]="'butt'" [subtitle]="'School'" [titleFontSize]="28" [unitsFontSize]="15" [subtitleFontSize]="25" 
+                    [subtitleFontWeight]="530" [titleColor]="'#A9A9A9'" [unitsColor]="'#A9A9A9'" [subtitleColor]="'#666666'"> 
+                </circle-progress>
+            </button>
+
+            <button class="btnbar" (click)="moodList('Others')">
+                <circle-progress [percent]="getOthersPercent()" [radius]="80" [outerStrokeWidth]="14" [innerStrokeWidth]="14" [space]="-13"
+                    [outerStrokeColor]="'#61C0FF'" [innerStrokeColor]="'#C3E8FF'" [animation]="true" [animationDuration]="350" 
+                    [outerStrokeLinecap]="'butt'" [subtitle]="'Others'" [titleFontSize]="28" [unitsFontSize]="15" [subtitleFontSize]="25" 
+                    [subtitleFontWeight]="530" [titleColor]="'#A9A9A9'" [unitsColor]="'#A9A9A9'" [subtitleColor]="'#666666'"> 
+                </circle-progress>
+            </button>
+        </div>
+    </body>
+</html>

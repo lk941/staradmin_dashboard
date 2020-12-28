@@ -1,0 +1,43 @@
+<h2 class="header"><b>Health</b></h2>
+<body>
+
+  <div class="chart">
+    <div id="bar">
+        <div id = "barChart1">
+        <canvas id = "barChart"></canvas>
+        </div>
+    </div> 
+  </div>
+
+  <div class = "chart">
+    <div id="line">
+        <div id = "lineChart1">
+        <canvas id = "lineChart"></canvas>
+        </div>
+    </div> 
+  </div>
+
+  <div class="phq-results">
+
+    <table class="table-striped">
+      <tr>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Score</th>
+        <th>Appetite</th>
+      </tr>
+
+      <tr *ngFor="let item of phqListArray | filter: searchText | paginate: { itemsPerPage: 6, currentPage: p }">
+        <td>{{ item.name }}</td>
+        <td>{{ item.date }}</td>
+        <td>{{ item.full }}</td>
+        <td>{{ item.appetite }}</td>
+     </tr>
+    </table>
+
+    <br>
+
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+  </div>
+</body>

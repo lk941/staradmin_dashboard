@@ -1,0 +1,23 @@
+<p>
+  list4 works!
+</p>
+
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th (click)="sort('Name')">Child Name</th>
+      <th (click)="sort('Message')">Message</th>
+      <th (click)="sort('ChatType')">Chat Type</th>
+    </tr>
+  </thead>
+  <!-- <ng-container *ngFor="let list of listArray | filter: search | orderBy: key : reverse | paginate: { itemsPerPage: 6, currentPage: p}"> -->
+    <tr ng-repeat="var list of listArray | filter: search | filter: searchDDL | orderBy: key : reverse | paginate: { itemsPerPage: 6, currentPage: p}">
+      <td>{{ list.Name }}</td>
+      <td>{{ list.Message }}</td>
+      <td>{{ list.ChatType }}</td>
+    </tr>
+  <!-- </ng-container> -->
+</table>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

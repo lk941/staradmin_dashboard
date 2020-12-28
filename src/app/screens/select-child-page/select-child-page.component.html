@@ -1,0 +1,18 @@
+<form id="AddChild">
+  <div *ngIf="this.usertype == 'parent'">
+    <h1>
+      Link Child
+    </h1>
+    <input id='grabbed' type="text" placeholder="Last 5 Digits of your Child's NRIC" (keyup)="onkey($event)">
+    <a class="btn" (click)="onSubmit()">Search</a>
+    <ul class='Users' style="list-style-type: none">
+      <li *ngFor="let contato of actualdisplayArray">
+        <div class="contactName" (click)="onSubmit(contato.Name)">{{contato.Name}}</div>
+      </li>
+    </ul>
+  </div>
+    <div *ngIf="this.usertype == 'Teacher'">
+      <app-teach-add-child></app-teach-add-child>
+    </div>
+</form>
+
