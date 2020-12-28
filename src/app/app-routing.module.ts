@@ -8,6 +8,9 @@ import { TablesComponent } from "./ui-elements/tables/tables.component";
 import { TypographyComponent } from "./ui-elements/typography/typography.component";
 import { DropdownComponent } from "./ui-elements/dropdown/dropdown.component";
 
+import { Dashboard2Component } from "./screens/dashboard-2/dashboard-2.component";
+import { DashboardOverallComponent } from "./screens/dashboard-test/dashboardoverall.component";
+
 import { LoaderComponent } from "./advanced-elements/loader/loader.component";
 
 import { MdiComponent } from "./icons/mdi/mdi.component";
@@ -35,7 +38,9 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   { path: "404-page", component: Page404Component },
-  { path: "500-page", component: Page500Component }
+  { path: "500-page", component: Page500Component },
+  { path: "dashboard2", component: Dashboard2Component},
+  { path: "dashboardtest1", component: DashboardOverallComponent}
 ];
 
 @NgModule({

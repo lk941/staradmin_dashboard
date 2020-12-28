@@ -22,6 +22,7 @@ import { TypographyComponent } from "./ui-elements/typography/typography.compone
 
 import { DashboardComponent } from "./screens/dashboard/dashboard.component";
 
+
 import { FormsComponent } from "./forms/forms.component";
 
 import { MdiComponent } from "./icons/mdi/mdi.component";
@@ -34,6 +35,8 @@ import { LoginComponent } from "./sample-pages/login/login.component";
 import { RegisterComponent } from "./sample-pages/register/register.component";
 import { Page404Component } from "./sample-pages/page404/page404.component";
 import { Page500Component } from "./sample-pages/page500/page500.component";
+import { Dashboard2Component } from "./screens/dashboard-2/dashboard-2.component";
+import { DashboardOverallComponent } from "./screens/dashboard-test/dashboardoverall.component";
 
 @NgModule({
   declarations: [
@@ -42,6 +45,8 @@ import { Page500Component } from "./sample-pages/page500/page500.component";
     SidebarComponent,
     FooterComponent,
     DashboardComponent,
+    Dashboard2Component,
+    DashboardOverallComponent,
     FormsComponent,
     ButtonsComponent,
     TablesComponent,
