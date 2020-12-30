@@ -6,7 +6,7 @@ import * as firebase from 'firebase/app';
 import { AutomlService } from './automl.service';
 import { OAuthService, JwksValidationHandler, AuthConfig } from 'angular-oauth2-oidc';
 import * as brain from 'brain.js/browser';
-import { Chart } from 'chart.js';
+import { Chart, LinearTickOptions } from 'chart.js';
 import {formatDate } from '@angular/common';
 import { borderTopRightRadius } from 'html2canvas/dist/types/css/property-descriptors/border-radius';
 import * as Sentiment from 'sentiment';
@@ -357,14 +357,14 @@ export class HobbiesInsightComponent implements OnInit {
              ticks: {
              fontSize: 15,
              beginAtZero: true,
-             stacked: true,
+             // stacked: true,
              callback: function(value) {if (value % 1 === 0) {return value;}}
            }
           }],
           xAxes: [{
             ticks: {
                 beginAtZero:true,
-                stacked: true,
+                // stacked: true,
             }
           }]
         },legend:{

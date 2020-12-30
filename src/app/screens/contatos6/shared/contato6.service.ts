@@ -4,6 +4,7 @@ import * as firebase from 'firebase/app';
 import { Contato6 } from './contato6';
 import { map } from 'rxjs/operators';
 import { Http ,HttpModule} from '@angular/http';
+
  
 @Injectable({
   providedIn: 'root'
