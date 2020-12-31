@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
-import * as firebase from 'firebase/app';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import * as firebase from 'angularfire2';
 import { Contato1 } from './contato1';
 import { map } from 'rxjs/operators';
 import { Http ,HttpModule} from '@angular/http';
