@@ -42,8 +42,8 @@ import { DashboardOverallComponent } from "./screens/dashboard-test/dashboardove
 // imports from mimibot-nov-2020
 
 import { HttpClientModule, /* other http imports */ } from "@angular/common/http";
-// import { ContatoDataService } from './screens/contatos/shared/contato-data.service';
-// import { ContatoService } from './screens/contatos/shared/contato.service';
+import { ContatoDataService } from './screens/contatos/shared/contato-data.service';
+import { ContatoService } from './screens/contatos/shared/contato.service';
 import { AutomlService } from './screens/contatos1/bully-insight/automl.service';
 import { AuthService } from './screens/auth.service';
 import { ExcelService } from './screens/child-model/excel-service/excel.service';
@@ -62,6 +62,7 @@ import { NgxPaginationModule} from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Ng2OrderModule } from 'ng2-order-pipe';
 import { OAuthModule } from 'angular-oauth2-oidc';
+import { UniquePipe } from './screens/pcrassesment/unique.pipe';
 // import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 /*
 import { NavComponent } from './screens/nav/nav.component';
@@ -159,6 +160,7 @@ import { List10Component } from './screens/contatos10/list10/list10.component'; 
     EditComponent,
     ListComponent,
     ConfirmationDialogComponent,
+    UniquePipe,
     /*
     NavComponent,
     HomeComponent,
@@ -253,7 +255,7 @@ import { List10Component } from './screens/contatos10/list10/list10.component'; 
       innerStrokeColor: "#C7E596",
       animationDuration: 300,
     }),
-    // BrowserAnimationsModule,
+    //BrowserAnimationsModule,
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
@@ -265,7 +267,7 @@ import { List10Component } from './screens/contatos10/list10/list10.component'; 
     MatIconModule,
     MatButtonModule
   ],
-  providers: [ /*ContatoService,ContatoDataService,*/ ConfirmationDialogService, AutomlService, AuthService, ExcelService, MatDialog, OverallDashComponent],
+  providers: [ ContatoService,ContatoDataService, ConfirmationDialogService, AutomlService, AuthService, ExcelService, MatDialog, OverallDashComponent],
   bootstrap: [AppComponent],
   exports: [MatSortModule]
 })

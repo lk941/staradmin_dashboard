@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "fix-memory-limit": "cross-env LIMIT=2048 increase-memory-limit"
   },
   "private": true,
   "dependencies": {
@@ -69,6 +70,8 @@
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
+    "increase-memory-limit": "^1.0.3",
+    "cross-env": "^5.0.5",
     "@angular-devkit/build-angular": "~0.901.3",
     "@angular/cli": "^9.1.13",
     "@angular/compiler-cli": "~9.1.3",

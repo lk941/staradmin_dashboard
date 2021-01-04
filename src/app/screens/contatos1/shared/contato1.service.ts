@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import * as firebase from 'angularfire2';
+// import * as firebase from 'angularfire2';
+//import * as firebase from '@angular/fire'
+import * as firebase from 'firebase/app';
 import { Contato1 } from './contato1';
 import { map } from 'rxjs/operators';
 import { Http ,HttpModule} from '@angular/http';
+import { FirebaseApp } from 'angularfire2';
+
  
 @Injectable({
   providedIn: 'root'
@@ -13,6 +17,7 @@ export class ContatoService {
   constructor(private db: AngularFireDatabase) { }
   bullyList :AngularFireList<any>;
   parentList :AngularFireList<any>;
+  // databaseURL = "https://mimibot-6c7f4.firebaseio.com";
 
   insert(contato1: Contato1) {
     this.db.list('Bullying').push(contato1)
@@ -48,7 +53,7 @@ export class ContatoService {
       .snapshotChanges()
       .pipe(
         map(changes => {
-          return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
+          return changes.map(c => ({ key: c.payload.key, ...c.payload.val() as {}}));
         })
       );
   }
