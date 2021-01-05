@@ -14,6 +14,7 @@ import { identifierModuleUrl } from '@angular/compiler';
 })
 export class ListComponent implements OnInit {
   contatos: Observable<any>;
+  value: any;
  
   constructor(public contatoService: ContatoService, private contatoDataService: ContatoDataService, private nav: NavService, private confirmationDialogService: ConfirmationDialogService) { }
   //sorting
@@ -23,6 +24,7 @@ export class ListComponent implements OnInit {
   ngOnInit() {
     this.nav.show()
     this.contatos = this.contatoService.getAll();
+    
   }
  
   delete(key: string) {

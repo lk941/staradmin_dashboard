@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ViewEncapsulation } from "@angular/core";
+// import { ChartjsComponent } from "";
 
 @Component({
   selector: "app-dashboardoverall",
@@ -20,7 +21,7 @@ export class DashboardOverallComponent implements OnInit {
     "Day 1",
     "Day 2",
     "Day 3",
-    "Day 4",
+    "Day 4", 
     "Day 5",
     "Day 6",
     "Day 7",
@@ -755,4 +756,39 @@ export class DashboardOverallComponent implements OnInit {
       borderColor: ["#62d896", "#3096f3", "#ee5f56", "#e6eef2"]
     }
   ];
+
+
+  // added charts
+
+  doughnutPieChartData = [
+    {
+      data: [30, 40, 30]
+    }
+  ];
+
+  doughnutPieChartLabels = ["Pink", "Blue", "Yellow"];
+
+  doughnutPieChartOptions = {
+    responsive: true,
+    animation: {
+      animateScale: true,
+      animateRotate: true
+    }
+  };
+
+  doughnutPieChartColors = [
+    {
+      backgroundColor: [
+        "rgba(255, 99, 132, 0.2)",
+        "rgba(54, 162, 235, 0.2)",
+        "rgba(255, 206, 86, 0.2)"
+      ],
+      borderColor: [
+        "rgba(255,99,132,1)",
+        "rgba(54, 162, 235, 1)",
+        "rgba(255, 206, 86, 1)"
+      ]
+    }
+  ];
+
 }
