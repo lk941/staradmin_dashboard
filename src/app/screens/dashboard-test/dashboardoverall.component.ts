@@ -1,5 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { ViewEncapsulation } from "@angular/core";
+import { Chart } from 'chart.js';
+import { ContatoService } from '../contatos1/shared/contato1.service';
+import * as $ from 'jquery';
+declare var $:any;
 // import { ChartjsComponent } from "";
 
 @Component({
@@ -13,9 +17,184 @@ export class DashboardOverallComponent implements OnInit {
     event.preventDefault();
     document.querySelector('body').classList.toggle('removeProbanner');
   }
-  constructor() {}
+  constructor(private contatoService: ContatoService) { }
+    bullyListArray = [];
+    bullyNames = [];
+    BarChart= [];
+    locations = []
+    PieChart= [];
+    victims = [];
+    DoughnutChart = [];
+    reasons = [];
 
-  ngOnInit() {}
+  ngOnInit() {
+
+    // toggleHidenShowB();
+
+    this.contatoService.getBully().subscribe(list => {
+      this.bullyListArray = list.map(item =>{
+          return {
+              ...item.payload.val()
+          }
+      })
+      console.log(this.bullyListArray)
+
+      //Get only the BullyName from firebase
+      for (var i = 0; i < this.bullyListArray.length; ++i){
+          this.bullyNames.push(this.bullyListArray[i]['BullyName']);
+      }
+      console.log(this.bullyNames)
+
+      //Get only the Location from firebase
+      for (var i = 0; i < this.bullyListArray.length; ++i){
+          this.locations.push(this.bullyListArray[i]['Location']);
+      }
+      console.log(this.locations)
+
+      //Get only the Victim from firebase
+      for (var i = 0; i < this.bullyListArray.length; ++i){
+          this.victims.push(this.bullyListArray[i]['Victim']);
+      }
+      console.log(this.victims)
+
+      //Get only the Reasons from firebase
+      for (var i = 0; i < this.bullyListArray.length; ++i){
+          this.reasons.push(this.bullyListArray[i]['Reason']);
+      }
+      console.log(this.reasons)
+
+      this.Bar();
+
+  })
+
+  var self = this;
+  setTimeout(function(){$(document).ready(function() {
+    $("#wordCloud").jQWCloud({
+          words: self.convert(),
+          //cloud_color: 'yellow',		
+          minFont: 10,
+          maxFont: 50,
+          //fontOffset: 5,
+          //cloud_font_family: 'Owned',
+          //verticalEnabled: false,
+          padding_left: 1,
+          //showSpaceDIV: true,
+          //spaceDIVColor: 'white',
+          word_common_classes: 'WordClass',		
+          word_mouseEnter :function(){
+              $(this).css("text-decoration","underline");
+          },
+          word_mouseOut :function(){
+              $(this).css("text-decoration","none");	
+          },
+          word_click: function(){ 			
+              alert("You have selected: " +$(this).text());
+          }
+      });
+  });
+  }, 1500)
+}
+
+//change to {word: '', weight: _}
+convert(){
+  var object = {}
+  var resultReason = [];
+  this.reasons.forEach(function (item){
+      var size = Math.floor((Math.random() * 11) + 25);
+      object['prop'] = {word: item, weight: size}
+      resultReason.push(object['prop'])
+  })
+  console.log("hey hmmm" + JSON.stringify(resultReason))
+  return resultReason
+}
+
+//Group the same word together
+group(array){
+  var object = {};
+  var result = [];
+  array.forEach(function (item) {
+      if(!object[item])
+          object[item] = 0;
+          object[item] += 1;
+  }) //count the names & store them into object array
+  console.log(JSON.stringify(object)) 
+  for (var prop in object) {
+      if (object[prop] >= 1) {
+          result.push(prop);
+      }
+  }
+  return result;
+}
+
+//Count the number of the same word
+count(array){
+  var a = [], b = [], prev;
+  array.sort();
+  for ( var i = 0; i < array.length; i++ ) {
+      if ( array[i] !== prev ) {
+          a.push(array[i]);
+          b.push(1);
+      } else {
+          b[b.length-1]++;
+      }
+      prev = array[i];
+  }
+  return [b];
+}
+
+//Capitalize the firsr word
+titleCase(array) {
+  for (var i = 0; i < array.length; i++) {
+      array[i] = array[i].charAt(0).toUpperCase() + array[i].slice(1); 
+  }
+  return array
+}
+
+//Random color pick
+dynamicColors() {
+  var r = Math.floor(Math.random() * 255);
+  var g = Math.floor(Math.random() * 255);
+  var b = Math.floor(Math.random() * 255);
+  return "rgba(" + r + "," + g + "," + b + ",0.6)";
+};
+//  function getRandomColorHex() {
+//     var hex = "0123456789ABCDEF",
+//         color = "#";
+//     for (var i = 1; i <= 6; i++) {
+//       color += hex[Math.floor(Math.random() * 16)];
+//     }
+//     return color;
+//   }
+
+//Store the random color to the number of data available
+colorSet(array){
+  var color = []
+  for (var data in array){
+      color.push(this.dynamicColors())
+  }
+  return color;
+}
+    toggleHidenShowB() {
+      var z = document.getElementById("barLoad");
+      z.style.display = "none";
+      var x = document.getElementById("barChart1");
+      if (x.style.display === "block") {
+          x.style.display = "none";
+      } else {
+          z.style.display = "block";
+          setTimeout(function(){
+              z.style.display = "none";
+              x.style.display = "block";
+          }, 3000)       
+      }
+      var y = document.getElementById("barBtn");
+      if (y.innerHTML === "Generate Bully Chart") {
+          y.innerHTML = "Close Bully Chart";
+      } else {
+          y.innerHTML = "Generate Bully Chart";
+      }
+  }
+  
 
   dashboardBarChartlabels = [
     "Day 1",
@@ -790,5 +969,47 @@ export class DashboardOverallComponent implements OnInit {
       ]
     }
   ];
+
+  Bar(){
+    var resultName = this.count(this.bullyNames);
+    console.log(resultName[0]);
+    this.BarChart = new Chart('barChart', {
+        type: 'bar',
+        data: {
+        labels: this.group(this.bullyNames),
+         datasets: [{
+             label: '# of times reported for bullying',
+             data: resultName[0],
+             backgroundColor: 
+                 'rgb(214, 234, 248)',
+             borderColor: 
+                 'black',
+             borderWidth: 0.3
+         }]
+        },options: {
+         title:{
+             text:"Bully Chart",
+             display:true,
+             fontSize: 15
+         },scales: {
+             yAxes: [{
+                 ticks: {
+                     beginAtZero:true,
+                     stepSize: 1
+                 }
+             }],
+             xAxes: [{
+                ticks: {
+                    fontSize: 15
+                }
+            }]
+         },legend: {
+            labels: {
+                fontSize: 15
+            }
+         },
+        }
+    })
+}
 
 }

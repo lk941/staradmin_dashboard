@@ -1,3 +1,4 @@
+
 <div class="row page-title-header">
   <!-- 
   <div class="row" id="proBanner">
@@ -155,7 +156,8 @@
   <div class="col-md-8 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title mb-0">Sales Statistics Overview</h4>
+        <h4 class="card-title mb-0"> Bully Statistics Overview</h4>
+        <!--
         <div class="d-flex flex-column flex-lg-row">
           <p>Lorem ipsum is placeholder text commonly used</p>
           <ul class="nav nav-tabs sales-mini-tabs ml-lg-auto mb-4 mb-md-0" role="tablist">
@@ -202,11 +204,19 @@
               </ul>
             </div>
           </div>
+        </div> -->
+        <div class="chart">
+          <div id="bar">
+              <div id = "barChart1">
+                <canvas id = "barChart"></canvas>
+              </div>
+          </div> 
         </div>
+        <!--
         <canvas class="mt-5" height="120" baseChart [chartType]="'line'" [datasets]="SalesStatisticsOverviewData"
           [labels]="SalesStatisticsOverviewLabels" [options]="SalesStatisticsOverviewOptions" [legend]="false"
           [colors]="SalesStatisticsOverviewColors">
-        </canvas>
+        </canvas>-->
       </div>
     </div>
   </div>
