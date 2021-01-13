@@ -4,7 +4,7 @@ import { NavService } from '../nav/nav.service'
 //import { ChartsModule } from 'ng2-charts';
 import { Routes, RouterModule } from '@angular/router';
 import { Chart } from 'chart.js';
-import { ContatoService } from '../contatos9/shared/contato9.service';
+import { ContatoService } from '../../contatos9/shared/contato9.service';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import * as $ from 'jquery';
 declare var $:any;

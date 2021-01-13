@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavService } from '../nav/nav.service'
-import { ContatoService } from '../contatos1/shared/contato1.service';
+import { ContatoService } from '../../contatos1/shared/contato1.service';
 
 
 @Component({

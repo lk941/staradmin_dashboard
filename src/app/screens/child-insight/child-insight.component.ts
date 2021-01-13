@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Contato4Service } from '../contatos4/shared/contato4.service';
+import { Contato4Service } from '../../contatos4/shared/contato4.service';
 import * as brain from 'brain.js/browser';
 import * as firebase from 'firebase/app';
-import {AutomlService } from '../contatos1/bully-insight/automl.service';
+import {AutomlService } from '../../contatos1/bully-insight/automl.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {NavService} from '../nav/nav.service';
 import { OAuthService, JwksValidationHandler, AuthConfig } from 'angular-oauth2-oidc';
