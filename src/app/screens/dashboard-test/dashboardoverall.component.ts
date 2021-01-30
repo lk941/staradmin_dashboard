@@ -3,6 +3,7 @@ import { ViewEncapsulation } from "@angular/core";
 import { Chart } from 'chart.js';
 import { ContatoService } from '../../contatos1/shared/contato1.service';
 import * as $ from 'jquery';
+import { TrunkPage } from "twilio/lib/rest/trunking/v1/trunk";
 declare var $:any;
 // import { ChartjsComponent } from "";
 
@@ -20,7 +21,8 @@ export class DashboardOverallComponent implements OnInit {
   constructor(private contatoService: ContatoService) { }
     bullyListArray = [];
     bullyNames = [];
-    BarChart= [];
+    BarChart = [];
+    hBarChart = [];
     locations = []
     PieChart= [];
     victims = [];
@@ -973,13 +975,13 @@ colorSet(array){
   Bar(){
     var resultName = this.count(this.bullyNames);
     console.log(resultName[0]);
-    this.BarChart.push(new Chart('barChart', {
-        type: 'bar',
+    this.hBarChart.push(new Chart('barChart', {
+        type: 'horizontalBar',
         data: {
         labels: this.group(this.bullyNames),
          datasets: [{
              label: '# of times reported for bullying',
-             data: resultName[0],
+             data: resultName[0].sort((one, two) => (one > two ? -1 : 1)),
              backgroundColor: 
                  'rgb(214, 234, 248)',
              borderColor: 
@@ -989,18 +991,19 @@ colorSet(array){
         },options: {
          title:{
              text:"Bully Chart",
-             display:true,
+             display: true,
              fontSize: 15
          },scales: {
-             yAxes: [{
+             xAxes: [{
                  ticks: {
                      beginAtZero:true,
                      stepSize: 1
                  }
              }],
-             xAxes: [{
+             yAxes: [{
                 ticks: {
                     fontSize: 15
+                    
                 }
             }]
          },legend: {

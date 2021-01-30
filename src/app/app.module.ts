@@ -105,7 +105,6 @@ import { List5Component } from './contatos5/list5/list5.component';
 import { HobbiesInsightComponent } from './contatos5/hobbies-insight/hobbies-insight.component';
 import { PhqReportComponent } from './screens/phq-report/phq-report.component';
 
-
 import { Edit9Component } from './contatos9/edit9/edit9.component';
 import { List9Component } from './contatos9/list9/list9.component';
 import { Edit7Component } from './contatos7/edit7/edit7.component';
@@ -124,7 +123,6 @@ import { PointSystemRewardsComponent } from './screens/point-system-rewards/poin
 */
 import { PhqComponent } from './screens/phq/phq.component';
 import { PhqInsightComponent } from './contatos6/phq-insight/phq-insight.component';
-
 
 
 @NgModule({
