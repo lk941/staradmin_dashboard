@@ -26,6 +26,7 @@ export class List10Component implements OnInit {
   name: string = ""
   reward: string =""
   points: string = ""
+  searchText: string = '';
   
   reverse: boolean = true;
 

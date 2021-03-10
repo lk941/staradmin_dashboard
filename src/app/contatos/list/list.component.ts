@@ -20,6 +20,8 @@ export class ListComponent implements OnInit {
   //sorting
   key: string =""
   reverse: boolean = true;
+  searchText = [];
+  p: number = 1;
   
   ngOnInit() {
     this.nav.show()

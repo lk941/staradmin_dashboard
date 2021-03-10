@@ -32,6 +32,10 @@ export class HobbiesInsightComponent implements OnInit {
   filteredArray = [];
   allHobbyType = [];
 
+  searchText: string = '';
+  searchDDL;
+  //p: number = 1;
+
   hobbyToBeModel = [];
   loader = false;
   success = false;
@@ -56,6 +60,7 @@ export class HobbiesInsightComponent implements OnInit {
 
   //changes when the teacher selects on the DDL list
   selectedStudentName;
+  selectedHobbyName;
 
   wordChildList = [];
   wordCounts = [];
@@ -65,7 +70,7 @@ export class HobbiesInsightComponent implements OnInit {
   //variables for the table
   key: string = "";
   reverse: boolean = true;
-  P: number = 1;
+  p: number = 1;
 
   //for the categorizing of the sentences
   maxlength = 21;
@@ -78,6 +83,7 @@ export class HobbiesInsightComponent implements OnInit {
   hobbyName = [];
   hobbyDuration = [];
   hobbyReason = [];
+  wordList;
 
   ngOnInit() {
     this.nav.show();
@@ -110,13 +116,24 @@ export class HobbiesInsightComponent implements OnInit {
              }
              console.log(this.enjoymentTypes);
              console.log("Data: " + this.nameOwner + ' ' + this.hobbyName  + ' ' + this.hobbyDuration + ' ' + this.hobbyReason);
-            }
+      }
+      
+      for (var i = 0; i < this.hobbyName.length; i++) {
+        if (!this.selectedHobbyName.includes(this.hobbyName[i])) {
+          this.selectedHobbyName.push(this.hobbyName[i]);
+        }
+      }
+  
 
             for (var i = 0; i < this.studentsName.length; i++) {
             if (!this.filteredArray.includes(this.studentsName[i])) {
                    this.filteredArray.push(this.studentsName[i]);
               }  
-            }
+
+              
+      }
+      
+      
 
             //this.tempstudentsName.push("Testing");            
  
@@ -335,7 +352,7 @@ export class HobbiesInsightComponent implements OnInit {
     console.log(this.enjoymentTypes);
     var resultCount = this.countWords(this.enjoymentTypes);
     console.log(resultCount);
-    this.hBarChart = new Chart('hBarChart',{
+    this.hBarChart.push(new Chart('hBarChart',{
       type: 'bar',
       data:{
         labels: ['Enjoy','Average','Dislike'], //this.group(this.hobbyType),
@@ -358,7 +375,7 @@ export class HobbiesInsightComponent implements OnInit {
              fontSize: 15,
              beginAtZero: true,
              // stacked: true,
-             callback: function(value) {if (value % 1 === 0) {return value;}}
+             callback: function(value) {if (Number(value) % 1 === 0) {return value;}}
            }
           }],
           xAxes: [{
@@ -373,7 +390,7 @@ export class HobbiesInsightComponent implements OnInit {
           }
         }
       }
-    })
+    }))
   }
 
   stackedBar(){
@@ -384,7 +401,7 @@ export class HobbiesInsightComponent implements OnInit {
     }
     var data = this.arrangeToStack(this.SBData);
     console.log(this.SBData);
-    this.stackBarChart = new Chart('stackBarChart',{
+    this.stackBarChart.push(new Chart('stackBarChart',{
       type:'horizontalBar',
       data:{
         labels: names,
@@ -423,7 +440,7 @@ export class HobbiesInsightComponent implements OnInit {
             ticks: {
                 beginAtZero:true,
                 stepSize: 1,
-                callback: function(value) {if (value % 1 === 0) {return value;}}
+                callback: function(value) {if (Number(value) % 1 === 0) {return value;}}
             }
           }]
         },
@@ -434,7 +451,7 @@ export class HobbiesInsightComponent implements OnInit {
           position:'top'
         }
       }
-    })
+    }))
   }
 
   //==========================================================================================

@@ -31,6 +31,9 @@ export class PhqReportComponent implements OnInit {
     appetite = [];
     phqListArray = [];
     
+    searchText = [];
+    p: number = 1;
+    moodList = [];
 
   ngOnInit() {
 
@@ -102,7 +105,7 @@ export class PhqReportComponent implements OnInit {
     Bar(){
       var energy = this.energy;
       console.log(energy[0]);
-      this.BarChart = new Chart('barChart', {
+      this.BarChart.push(new Chart('barChart', {
           type: 'bar',
           data: {
           labels: this.date,
@@ -138,14 +141,14 @@ export class PhqReportComponent implements OnInit {
               }
            },
           }
-      })
+      }))
   }
 
   //Line Graph for Sleep
   Line(){
     var sleep = this.sleep;
     console.log(sleep[0]);
-    this.LineChart = new Chart('lineChart', {
+    this.LineChart.push(new Chart('lineChart', {
         type: 'line',
         data: {
         labels: this.date,
@@ -183,7 +186,7 @@ export class PhqReportComponent implements OnInit {
             }
          },
         }
-    })
+    }))
 } 
 
 //Line Graph attempt 2

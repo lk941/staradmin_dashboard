@@ -20,7 +20,7 @@ export class TeachAddChildComponent implements OnInit {
   dbToBeProcessed: File;
   fullChild: Child[];
   boo: boolean = false;
-  displayedColumns = ['Name', 'nric', 'FavColor', 'FavFruit', 'FavNumber', 'action'];
+  displayedColumns = ['Name', 'NRIC', 'Color', 'Fruit', 'Number', 'action'];
   dataSource = new MatTableDataSource<Child>();
   heck: boolean = true; // Validation Check
   userList: any;

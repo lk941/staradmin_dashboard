@@ -21,6 +21,7 @@ export class List8Component implements OnInit {
   //searchText: string = "";
   list;
   p: number = 1;
+  searchText: string = '';
   //sorting
   key: string = ""
   name: string = ""

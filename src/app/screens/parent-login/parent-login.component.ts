@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { NavService } from '../nav/nav.service';
+import { NavBarService } from 'src/app/partials/navbar/navbar.service';
+import { SideBarService } from 'src/app/partials/sidebar/sidebar.service';
 import { ParentPortal } from '../parent-login/services/parentportal';
 import { ParentportalService } from '../parent-login/services/parentportal.service';
 import { ParentportalDataService } from '../parent-login/services/parentportal-data.service';
 import { Observable, of } from 'rxjs';
 import { Router, Params } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { AuthService } from '../auth.service';
+import { AuthService } from 'src/app/auth.service';
 import { FormGroup } from '@angular/forms';
 
 declare function btnSignUpClicked([]): string;
@@ -64,7 +66,10 @@ parentUsername: string;
     this.AuthService.Login(this.parentportal.Username, this.parentportal.Password);
     if (this.AuthService.isAuthenticated() == true)
     {
-      this.router.navigateByUrl('phome');
+
+      this.router.navigateByUrl('dashboardtest1');
+      this.navbar.show();
+      this.sidenav.show();
     } else {
       return;
     }
@@ -74,6 +79,6 @@ parentUsername: string;
   // public hashPwd() {
   //   btnSignUpClicked(this.parentPortalArray);
   // }
-  constructor(private router: Router, private parentPortalService: ParentportalService, private parentPortalDataService: ParentportalDataService, private AuthService: AuthService, private nav: NavService) {}
+  constructor(private router: Router, private parentPortalService: ParentportalService, private parentPortalDataService: ParentportalDataService, private AuthService: AuthService, private nav: NavService, private navbar: NavBarService, private sidenav: SideBarService) { }
   
 }

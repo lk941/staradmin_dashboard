@@ -23,6 +23,7 @@ export class List7Component implements OnInit {
   key: string = ""
   name: string = ""
   reverse: boolean = true;
+  searchText: string = "";
 
   ngOnInit() {
     this.nav.show()

@@ -44,7 +44,7 @@
 
         <div class="circle-bar">
 
-            <button class="btnbar" (click)="moodList('Family')">
+            <button class="btnbar" (click)="moodListArray('Family')">
                 <circle-progress [percent]="getFamilyPercent()" [radius]="80" [outerStrokeWidth]="14" [innerStrokeWidth]="14" [space]="-13"
                     [outerStrokeColor]="'#FF8C00'" [innerStrokeColor]="'#FFD281'" [animation]="true" [animationDuration]="350" 
                     [outerStrokeLinecap]="'butt'" [subtitle]="'Family'" [titleFontSize]="28" [unitsFontSize]="15" [subtitleFontSize]="25" 
@@ -52,7 +52,7 @@
                 </circle-progress>
             </button>
 
-            <button class="btnbar" (click)="moodList('Friends')">
+            <button class="btnbar" (click)="moodListArray('Friends')">
                 <circle-progress [percent]="getFriendsPercent()" [radius]="80" [outerStrokeWidth]="14" [innerStrokeWidth]="14" [space]="-13"
                     [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="350" 
                     [outerStrokeLinecap]="'butt'" [subtitle]="'Friends'" [titleFontSize]="28" [unitsFontSize]="15" [subtitleFontSize]="25" 
@@ -60,7 +60,7 @@
                 </circle-progress>
             </button>
     
-            <button class="btnbar" (click)="moodList('School')">
+            <button class="btnbar" (click)="moodListArray('School')">
                 <circle-progress [percent]="getSchoolPercent()" [radius]="80" [outerStrokeWidth]="14" [innerStrokeWidth]="14" [space]="-13"
                     [outerStrokeColor]="'#E63C5E'" [innerStrokeColor]="'#FF9AAE'" [animation]="true" [animationDuration]="350" 
                     [outerStrokeLinecap]="'butt'" [subtitle]="'School'" [titleFontSize]="28" [unitsFontSize]="15" [subtitleFontSize]="25" 
@@ -68,7 +68,7 @@
                 </circle-progress>
             </button>
 
-            <button class="btnbar" (click)="moodList('Others')">
+            <button class="btnbar" (click)="moodListArray('Others')">
                 <circle-progress [percent]="getOthersPercent()" [radius]="80" [outerStrokeWidth]="14" [innerStrokeWidth]="14" [space]="-13"
                     [outerStrokeColor]="'#61C0FF'" [innerStrokeColor]="'#C3E8FF'" [animation]="true" [animationDuration]="350" 
                     [outerStrokeLinecap]="'butt'" [subtitle]="'Others'" [titleFontSize]="28" [unitsFontSize]="15" [subtitleFontSize]="25" 

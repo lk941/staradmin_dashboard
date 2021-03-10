@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/8c45d4ad-5434-4100-8097-96b0b801e36a/resourceGroups/mimibot-final-rg/providers/Microsoft.Web/sites/mimibot-final",
+    "appService.deploySubpath": "."
+}

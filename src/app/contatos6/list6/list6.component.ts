@@ -22,6 +22,7 @@ export class List6Component implements OnInit {
   //sorting
   key: string =""
   reverse: boolean = true;
+  searchText: string = "";
 
   ngOnInit() {
     this.nav.show()

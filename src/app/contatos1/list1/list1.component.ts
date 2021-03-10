@@ -19,6 +19,7 @@ export class List1Component implements OnInit {
   //searchText: string = "";
   list;
   p: number = 1;
+  searchText = [];
   //sorting
   key: string =""
   reverse: boolean = true;

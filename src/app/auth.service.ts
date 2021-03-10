@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, from } from 'rxjs';
-import { parentPortal } from './parent-login/loginthings/parentPortal';
-import { ParentportalService } from './parent-login/services/parentportal.service';
+import { parentPortal } from './screens/parent-login/loginthings/parentPortal';
+import { ParentportalService } from './screens/parent-login/services/parentportal.service';
 // import { NG_MODEL_WITH_FORM_CONTROL_WARNING } from '@angular/forms/src/directives';
 
 // import * as express from 'express';

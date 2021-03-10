@@ -13,9 +13,10 @@ export class List4Component implements OnInit {
   constructor(private contato4Serive: Contato4Service, private childInsight: ChildInsightComponent) { }
 
   listArray = [];
+  //list;
   key: string = "";
   reverse: boolean = true;
-  P: number = 1;
+  p: number = 1;
 
   
   childId: string;

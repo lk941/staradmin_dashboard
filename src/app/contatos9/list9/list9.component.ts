@@ -17,9 +17,10 @@ export class List9Component implements OnInit {
   constructor(private contatoService: ContatoService, private contatoDataService: ContatoDataService, private router: Router, private nav: NavService) { }
   contatos9: Observable<any> = this.contatoService.getAll();
   
-  //searchText: string = "";
+  searchText: string = "";
   list;
   p: number = 1;
+  
  
   //sorting
   key: string = ""

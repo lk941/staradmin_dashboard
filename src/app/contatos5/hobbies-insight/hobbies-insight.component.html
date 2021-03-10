@@ -95,7 +95,7 @@
           <th (click)="sort('Reason')">Reason</th>
         </tr>
       </thead>
-      <ng-container *ngFor="let list of allHobby| filter: selectedhobbyName | filter: searchText | filter: searchDDL | orderBy: key : reverse | paginate: { itemsPerPage: 8, currentPage: p}">
+      <ng-container *ngFor="let list of allHobby| filter: selectedHobbyName | filter: searchText | filter: searchDDL | orderBy: key : reverse | paginate: { itemsPerPage: 8, currentPage: p}">
         <tr>
           <td width = "20%">{{ list.Name }}</td>
           <td>{{ list.Hobby }}</td>

@@ -42,9 +42,10 @@ import {formatDate } from '@angular/common';
         this.dateTime = formatDate(this.today, 'dd-MM-yyyy hh:mm:ss a', 'en-US', '+0800');
     }
 
-    moodListArray = [];
+    moodListArray;
     mood = [];
-    moodType = [];
+    
+    moodType = []; 
     moodReason = [];
     name = [];
     date = [];
@@ -224,7 +225,7 @@ import {formatDate } from '@angular/common';
         var resultMood = this.count(this.mood)
         console.log(resultMood[0])
         console.log(this.colorSet(this.mood))
-        this.PieChart = new Chart('pieChart', {
+        this.PieChart.push(new Chart('pieChart', {
             type: 'pie',
             data: {
                 labels: this.group(this.mood),
@@ -247,7 +248,7 @@ import {formatDate } from '@angular/common';
                     }
                 }
             }
-        })
+        }))
     }  
 
     //Causes of Mood Chart

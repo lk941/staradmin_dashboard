@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef, DoCheck, OnChanges } from '@angular/core';
 import {NavService} from './nav.service'
-import { AuthService } from '../auth.service';
+import { AuthService } from 'src/app/auth.service';
 import { Router } from '@angular/router';
 import { ParentportalService } from '../parent-login/services/parentportal.service';
 

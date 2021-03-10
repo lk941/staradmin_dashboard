@@ -36,7 +36,7 @@ import { LoginComponent } from "./sample-pages/login/login.component";
 import { RegisterComponent } from "./sample-pages/register/register.component";
 import { Page404Component } from "./sample-pages/page404/page404.component";
 import { Page500Component } from "./sample-pages/page500/page500.component";
-import { Dashboard2Component } from "./screens/dashboard-2/dashboard-2.component";
+import { Dashboard2Component } from "./screens/dashboard-2/dashboard-2.component"; 
 import { DashboardOverallComponent } from "./screens/dashboard-test/dashboardoverall.component";
 
 // imports from mimibot-nov-2020
@@ -45,7 +45,7 @@ import { HttpClientModule, /* other http imports */ } from "@angular/common/http
 import { ContatoDataService } from './contatos/shared/contato-data.service';
 import { ContatoService } from './contatos/shared/contato.service';
 import { AutomlService } from './contatos1/bully-insight/automl.service';
-import { AuthService } from './screens/auth.service';
+import { AuthService } from './auth.service';
 import { ExcelService } from './screens/child-model/excel-service/excel.service';
 
 import {environment} from '../environments/environment';
@@ -64,7 +64,7 @@ import { Ng2OrderModule } from 'ng2-order-pipe';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { UniquePipe } from './screens/pcrassesment/unique.pipe';
 // import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-// import { NavComponent } from './screens/nav/nav.component';
+import { NavComponent } from './screens/nav/nav.component';
 import { HomeComponent } from './screens/home/home.component';
 import { HomeworkComponent } from './screens/homework/homework.component';
 import { QuizComponent } from './screens/quiz/quiz.component';
@@ -97,7 +97,7 @@ import { TeachAddChildComponent } from './screens/teach-add-child/teach-add-chil
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogboxComponent } from './screens/Dialogbox/dialogbox/dialogbox.component';
 // import { TeachParConfirmationComponent } from './screens/confirmation/teach-par-confirmation/teach-par-confirmation.component';
-// import { TeachnotifComponent } from './screens/teachnotif/teachnotif.component';
+import { TeachnotifComponent } from './screens/teachnotif/teachnotif.component';
 
 import { HobbiesComponent } from './screens/hobbies/hobbies.component';
 import { Edit5Component } from './contatos5/edit5/edit5.component';
@@ -113,14 +113,14 @@ import { Edit8Component } from './contatos8/edit8/edit8.component';
 import { List8Component } from './contatos8/list8/list8.component';
 import { Edit6Component } from './contatos6/edit6/edit6.component';
 import { List6Component } from './contatos6/list6/list6.component';
-// import { Edit10Component } from './contatos10/edit10/edit10.component';
-// import { List10Component } from './contatos10/list10/list10.component';
-/*
+import { Edit10Component } from './contatos10/edit10/edit10.component';
+import { List10Component } from './contatos10/list10/list10.component';
+
 import { PointSystemComponent } from './screens/point-system/point-system.component';
 import { PointSystemDetailsComponent } from './screens/point-system-details/point-system-details.component';
 import { PointSystemTaskComponent } from './screens/point-system-task/point-system-task.component';
 import { PointSystemRewardsComponent } from './screens/point-system-rewards/point-system-rewards.component'; 
-*/
+
 import { PhqComponent } from './screens/phq/phq.component';
 import { PhqInsightComponent } from './contatos6/phq-insight/phq-insight.component';
 
@@ -146,6 +146,7 @@ import { PhqInsightComponent } from './contatos6/phq-insight/phq-insight.compone
     RegisterComponent,
     Page404Component,
     Page500Component,
+    NavComponent,
     // imports from mimibot-nov-20
     EditComponent,
     ListComponent,
@@ -184,6 +185,7 @@ import { PhqInsightComponent } from './contatos6/phq-insight/phq-insight.compone
     TeachnotifComponent,
     */
     HobbiesComponent,
+    TeachnotifComponent,
     Edit5Component,
     List5Component,
     HobbiesInsightComponent,
@@ -198,14 +200,14 @@ import { PhqInsightComponent } from './contatos6/phq-insight/phq-insight.compone
     List8Component,
     Edit6Component,
     List6Component,
-    /*
+    
     PointSystemComponent,
     PointSystemDetailsComponent,
     PointSystemTaskComponent,
     PointSystemRewardsComponent,
 
     Edit10Component,
-    List10Component, */
+    List10Component, 
     OverallDashComponent
   ],
   entryComponents: [],

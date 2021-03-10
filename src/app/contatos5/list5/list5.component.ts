@@ -19,9 +19,14 @@ export class List5Component implements OnInit {
   //searchText: string = "";
   list;
   p: number = 1;
+  searchText = [];
   //sorting
   key: string =""
   reverse: boolean = true;
+
+  selectedHobbyName;
+  searchDDL;
+  wordList = [];
 
   ngOnInit() {
     this.nav.show()
